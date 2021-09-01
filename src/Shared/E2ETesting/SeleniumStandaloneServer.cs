@@ -133,12 +133,21 @@ namespace Microsoft.AspNetCore.E2ETesting
             {
                 process = Process.Start(psi);
                 pidFilePath = await WriteTrackingFileAsync(output, trackingFolder, process);
-                sentinel = StartSentinelProcess(process, pidFilePath, SeleniumProcessTimeout);
+
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    sentinel = StartSentinelProcess(process, pidFilePath, SeleniumProcessTimeout);
+                }
             }
             catch
             {
                 ProcessCleanup(process, pidFilePath);
-                ProcessCleanup(sentinel, pidFilePath: null);
+
+                if (sentinel is not null)
+                {
+                    ProcessCleanup(sentinel, pidFilePath: null);
+                }
+
                 throw;
             }
 
@@ -292,7 +301,11 @@ Captured output lines:
         public void Dispose()
         {
             ProcessCleanup(_process, _sentinelPath);
-            ProcessCleanup(_sentinelProcess, pidFilePath: null);
+
+            if (_sentinelProcess is not null)
+            {
+                ProcessCleanup(_sentinelProcess, pidFilePath: null);
+            }
         }
     }
 }
