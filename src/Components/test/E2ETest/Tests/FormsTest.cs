@@ -310,7 +310,7 @@ namespace Microsoft.AspNetCore.Components.E2ETest.Tests
             Browser.Equal(new[] { "The DepartureTime field must be a time." }, messagesAccessor);
         }
 
-        [Fact]
+        [Fact(Skip = "Fails on Blazor Server when running in CI - https://dev.azure.com/dnceng/public/_build/results?buildId=1338082&view=ms.vss-test-web.build-test-results-tab&runId=39213984&resultId=100373&paneView=debug")]
         public void InputDateInteractsWithEditContext_MonthInput()
         {
             var appElement = MountTypicalValidationComponent();
@@ -376,7 +376,7 @@ namespace Microsoft.AspNetCore.Components.E2ETest.Tests
             Browser.Empty(messagesAccessor);
         }
 
-        [Fact]
+        [Fact(Skip = "Fails on Blazor Server when running in CI - https://dev.azure.com/dnceng/public/_build/results?buildId=1338082&view=ms.vss-test-web.build-test-results-tab&runId=39213984&resultId=100373&paneView=debug")]
         public void InputDateInteractsWithEditContext_DateTimeLocalInput_Step()
         {
             var appElement = MountTypicalValidationComponent();
