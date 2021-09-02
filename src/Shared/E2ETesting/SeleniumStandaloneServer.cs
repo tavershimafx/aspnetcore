@@ -104,7 +104,7 @@ namespace Microsoft.AspNetCore.E2ETesting
             var chromeDriverPathEnvVar = Environment.GetEnvironmentVariable("CHROMEWEBDRIVER");
             if (!string.IsNullOrEmpty(chromeDriverPathEnvVar))
             {
-                chromeDriverArg = $"--javaArgs=-Dwebdriver.chrome.driver={chromeDriverPathEnvVar}";
+                chromeDriverArg = $"--javaArgs=-Dwebdriver.chrome.driver={chromeDriverPathEnvVar}/chromedriver";
                 output.WriteLine($"Using chromedriver at path {chromeDriverPathEnvVar}");
             }
 
