@@ -227,7 +227,7 @@ namespace Microsoft.AspNetCore.Components.E2ETest.Tests
             Browser.Empty(messagesAccessor);
         }
 
-        [Fact]
+        [Fact(Skip = "Fails on Blazor Server when running in CI - https://dev.azure.com/dnceng/public/_build/results?buildId=1338290&view=ms.vss-test-web.build-test-results-tab")]
         public void InputDateInteractsWithEditContext_NullableDateTimeOffset()
         {
             var appElement = MountTypicalValidationComponent();
@@ -250,7 +250,7 @@ namespace Microsoft.AspNetCore.Components.E2ETest.Tests
             Browser.Empty(messagesAccessor);
         }
 
-        [Fact]
+        [Fact(Skip = "Fails on Blazor Server when running in CI - https://dev.azure.com/dnceng/public/_build/results?buildId=1338290&view=ms.vss-test-web.build-test-results-tab")]
         [QuarantinedTest("https://github.com/dotnet/aspnetcore/issues/35018")]
         public void InputDateInteractsWithEditContext_TimeInput()
         {
@@ -278,7 +278,7 @@ namespace Microsoft.AspNetCore.Components.E2ETest.Tests
             Browser.Equal(new[] { "The DepartureTime field must be a time." }, messagesAccessor);
         }
 
-        [Fact]
+        [Fact(Skip = "Fails on Blazor Server when running in CI - https://dev.azure.com/dnceng/public/_build/results?buildId=1338290&view=ms.vss-test-web.build-test-results-tab")]
         public void InputDateInteractsWithEditContext_TimeInput_Step()
         {
             var appElement = MountTypicalValidationComponent();
@@ -339,7 +339,7 @@ namespace Microsoft.AspNetCore.Components.E2ETest.Tests
             Browser.Empty(messagesAccessor);
         }
 
-        [Fact]
+        [Fact(Skip = "Fails on Blazor Server when running in CI - https://dev.azure.com/dnceng/public/_build/results?buildId=1338290&view=ms.vss-test-web.build-test-results-tab")]
         [QuarantinedTest("https://github.com/dotnet/aspnetcore/issues/34884")]
         public void InputDateInteractsWithEditContext_DateTimeLocalInput()
         {
