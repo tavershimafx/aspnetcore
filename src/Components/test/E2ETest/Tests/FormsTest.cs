@@ -194,7 +194,7 @@ namespace Microsoft.AspNetCore.Components.E2ETest.Tests
             Browser.Empty(messagesAccessor);
         }
 
-        [Fact]
+        [Fact(Skip = "Fails on Blazor Server when running in CI - https://dev.azure.com/dnceng/public/_build/results?buildId=1338082&view=ms.vss-test-web.build-test-results-tab&runId=39213984&resultId=100373&paneView=debug")]
         [QuarantinedTest("https://github.com/dotnet/aspnetcore/issues/35018")]
         public void InputDateInteractsWithEditContext_NonNullableDateTime()
         {
