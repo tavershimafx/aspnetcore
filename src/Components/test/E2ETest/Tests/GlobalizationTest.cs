@@ -37,7 +37,7 @@ namespace Microsoft.AspNetCore.Components.E2ETests.Tests
             Browser.Equal(42.ToString(cultureInfo), () => display.Text);
 
             input.Clear();
-            input.SendKeys(9000.ToString("0,000", cultureInfo));
+            input.SendKeys(9000.ToString("0,000", cultureInfo).Replace(cultureInfo.NumberFormat.NumberGroupSeparator, " "));
             input.SendKeys("\t");
             Browser.Equal(9000.ToString(cultureInfo), () => display.Text);
 
@@ -47,7 +47,7 @@ namespace Microsoft.AspNetCore.Components.E2ETests.Tests
             Browser.Equal(4.2m.ToString(cultureInfo), () => display.Text);
 
             input.Clear();
-            input.SendKeys(9000.42m.ToString("0,000.00", cultureInfo));
+            input.SendKeys(9000.42m.ToString("0,000.00", cultureInfo).Replace(cultureInfo.NumberFormat.NumberGroupSeparator, " "));
             input.SendKeys("\t");
             Browser.Equal(9000.42m.ToString(cultureInfo), () => display.Text);
 
