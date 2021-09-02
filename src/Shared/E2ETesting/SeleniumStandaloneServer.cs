@@ -198,6 +198,9 @@ namespace Microsoft.AspNetCore.E2ETesting
                 catch (OperationCanceledException)
                 {
                 }
+                catch (HttpRequestException)
+                {
+                }
 
                 retries++;
             } while (retries < 30);
